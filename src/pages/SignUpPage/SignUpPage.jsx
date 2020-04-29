@@ -19,6 +19,8 @@ class SignupForm extends Component {
     },
   };
 
+  formRef = React.createRef();
+
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -69,7 +71,6 @@ class SignupForm extends Component {
           type="text"
           placeholder="Categories"
           isMulti
-          isSearchable
           name="categories"
           options={restaurantCategories}
           value={this.state.formData.categories}

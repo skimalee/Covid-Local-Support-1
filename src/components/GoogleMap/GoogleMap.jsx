@@ -1,38 +1,54 @@
-import React from "react";
-import {
-  GoogleMap,
-  withScriptjs,
-  withGoogleMap,
-  //   Marker,
-} from "react-google-maps";
+// import React from "react";
 
-// const key = process.env.GOOGLE_MAPS_KEY;
-
-function Map() {
-  return (
-    <GoogleMap
-      defaultZoom={10}
-      defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
-    ></GoogleMap>
-  );
-}
-
-const WrappedMap = withScriptjs(withGoogleMap(Map));
-
-const GoogleMapComponent = () => {
-  return (
-    <div style={{ width: "50vw", height: "50vh" }}>
-      <WrappedMap
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=AIzaSyBSgkPpf1nlv91xu9gO5D-gURtirUOBf4A&v=3.exp&libraries=geometry,drawing,places`}
-        // googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_KEY}&v=3.exp&libraries=geometry,drawing,places`}
-        loadingElement={<div style={{ height: "100%" }} />}
-        containerElement={<div style={{ height: "100%" }} />}
-        mapElement={<div style={{ height: "100%" }} />}
-      />
-    </div>
-  );
-};
-
-export default GoogleMapComponent;
-
-// ${process.env.REACT_APP_MAPS_KEY}
+// const geocode = () => {
+//   // initializes state
+//   let [latitude, setLatitude] = React.useState(-33.7560119);
+//   let [longitude, setLongitude] = React.useState(150.6038367);
+//   let [address, setAddress] = React.useState("");
+//   // searches for new locations
+//   const updateCoordinates = (e) => {
+//     e.preventDefault();
+//     const encodedAddress = encodeURI(address);
+//     // fetches data from our api
+//     fetch(
+//       `https://google-maps-geocoding.p.rapidapi.com/geocode/json?language=en&address=${encodedAddress}`,
+//       {
+//         method: "GET",
+//         headers: {
+//           "x-rapidapi-host": "google-maps-geocoding.p.rapidapi.com",
+//           "x-rapidapi-key": process.env.RAPIDAPI_KEY,
+//         },
+//       }
+//     )
+//       .then((response) => response.json())
+//       .then((response) => {
+//         setLatitude(response.lat);
+//         setLongitude(response.long);
+//       })
+//       .catch((err) => console.log(err));
+//   };
+//   return (
+//     <div>
+//       The latitude is {latitude}
+//       The longitude is {longitude}
+//       <form onSubmit={(e) => updateCoordinates(e)}>
+//         <div className="form-group">
+//           <label htmlFor="address">Address</label>
+//           <input
+//             type="text"
+//             className="form-control"
+//             id="address"
+//             required
+//             aria-describedby="addressHelp"
+//             value={address}
+//             onChange={(e) => setAddress(e.target.value)}
+//           />
+//         </div>
+//         <button className="btn mb-4 btn-primary" type="submit">
+//           Search Location
+//         </button>
+//       </form>
+//     </div>
+//   );
+// };
+// export default geocode;
