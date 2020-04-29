@@ -4,6 +4,7 @@ const restaurantsCtrl = require("../../controllers/restaurants");
 
 /*---------- Public Routes ----------*/
 router.post("/add", restaurantsCtrl.add);
+router.post("/addpost", restaurantsCtrl.addPost);
 
 /*---------- Protected Routes ----------*/
 
