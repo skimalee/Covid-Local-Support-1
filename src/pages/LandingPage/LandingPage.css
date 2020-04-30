@@ -5,4 +5,5 @@
 .syncButton {
   display: block !important;
   margin: 0 auto !important;
+  background: none !important;
 }

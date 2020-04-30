@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+
+.borderless {
+  border-top: 0px !important;
+}
+
+.ui.celled.grid,
+.row,
+.column {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.banner {
+  height: 20vh;
+  width: 100%;
+}

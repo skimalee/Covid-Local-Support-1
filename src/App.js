@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import userService from "./utils/userService";
 import LandingPage from "./pages/LandingPage/LandingPage";
 // import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -10,10 +11,18 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      user: userService.getUser(),
       addressInput: "",
       latitude: "",
       longitude: "",
     };
+  }
+
+  componentDidMount() {
+    let status = userService.getUser();
+    if (this.state.user !== status) {
+      this.setState({ user: status });
+    }
   }
 
   handleSearchChange = (e) => {
@@ -38,6 +47,13 @@ class App extends React.Component {
     );
   };
 
+  handleLogout = () => {
+    userService.logout();
+    this.setState({
+      user: null,
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -50,6 +66,8 @@ class App extends React.Component {
                 syncLocation={this.syncLocation}
                 addressInput={this.state.addressInput}
                 handleSearchChange={this.handleSearchChange}
+                user={this.state.user}
+                handleLogout={this.handleLogout}
               />
             )}
           />

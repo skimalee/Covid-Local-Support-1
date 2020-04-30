@@ -1,8 +1,3 @@
-html,
-body {
-  background-color: #1d3557 !important;
-}
-
 .signup {
   text-align: right;
 }
@@ -11,8 +6,9 @@ body {
   text-align: center;
 }
 
-.ui.icon.center.aligned.header {
+.ui.white.icon.center.aligned.header.welcomeBack {
   color: white;
+  font-size: 40px;
 }
 
 .ui.segment {

@@ -32,9 +32,14 @@ class ResNavBar extends React.Component {
         <div className="ui attached stackable menu">
           <div className="ui container subNav">
             <div>
-              <Image href="https://imgur.com/a/94NTL1H" size="tiny" />
+              <Link to="/">
+                <img
+                  className="nav-logo"
+                  src="https://i.imgur.com/ArGMEB7.png"
+                />
+              </Link>
             </div>
-            <p>For Restaurant Owners</p>
+            <h3>For Restaurant Owners</h3>
             <Link to="/account" className="item">
               Your Business
             </Link>
@@ -42,7 +47,7 @@ class ResNavBar extends React.Component {
               Preview
             </Link>
             <div className="right item">
-              <Link to="/logout" onClick={this.props.clearYelpGrabs}>
+              <Link to="/logout">
                 <Button>Log Out</Button>
               </Link>
             </div>

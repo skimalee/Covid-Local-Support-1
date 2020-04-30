@@ -1,18 +1,5 @@
 const mongoose = require("mongoose");
 
-// const postSchema = new mongoose.Schema(
-//   {
-//     content: [String],
-//     restaurantId: {
-//       type: Schema.Types.ObjectId,
-//       ref: "Restaurant",
-//     },
-//   },
-//   {
-//     timestamps: true,
-//   }
-// );
-
 const restaurantSchema = new mongoose.Schema(
   {
     owner: String,

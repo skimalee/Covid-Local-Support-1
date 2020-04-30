@@ -12,6 +12,22 @@
   box-shadow: none !important;
 }
 
+.nav-logo {
+  margin-right: 2rem;
+}
+.ui.attached.stackable.menu {
+  background: #1d3557;
+  color: white;
+}
+
+.item {
+  color: white;
+}
+
+.ui.menu .item {
+  color: white;
+}
+
 .bigHeader {
   background-color: #38686a;
 }
@@ -110,10 +126,4 @@
   .LinkBody {
     font-size: 1vw;
   }
-}
-
-.ui.container.subNav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
 }

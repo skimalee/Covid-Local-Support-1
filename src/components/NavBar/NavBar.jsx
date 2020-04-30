@@ -6,9 +6,7 @@ import { Image, Button } from "semantic-ui-react";
 class NavBar extends React.Component {
   constructor() {
     super();
-    this.state = {
-      term: "",
-    };
+    this.state = {};
   }
 
   handleSearchChange = (e) => {
@@ -18,11 +16,30 @@ class NavBar extends React.Component {
     // console.log(e.target.value);
   };
 
-  handleSearchSubmit = () => {
-    this.props.searchRequest(this.state.term);
+  responsiveNav = () => {
+    if (!this.props.user) {
+      return (
+        <div>
+          <Link to="/login">Log In</Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Link to="/signup">
+            <Button>Sign Up</Button>
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <Link to="" onClick={this.props.handleLogout}>
+            Log Out
+          </Link>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <Link to="/account">
+            <Button>Account</Button>
+          </Link>
+        </div>
+      );
+    }
   };
-
-  responsiveNav = () => {};
 
   render() {
     return (
@@ -31,14 +48,10 @@ class NavBar extends React.Component {
 
         <div className="ui attached stackable menu">
           <div className="ui container subNav">
-            <div>
-              <Image href="https://imgur.com/a/94NTL1H" size="tiny" />
-            </div>
-            <Link
-              to="/howtohelp"
-              className="item"
-              onClick={this.props.clearYelpGrabs}
-            >
+            <Link to="/">
+              <img className="nav-logo" src="https://i.imgur.com/ArGMEB7.png" />
+            </Link>
+            <Link to="/howtohelp" className="item">
               How To Help
             </Link>
             <Link to="/stayingsafe" className="item">
@@ -47,15 +60,7 @@ class NavBar extends React.Component {
             <Link to="/registerrestaurant" className="item">
               Register restaurant
             </Link>
-            <div className="right item">
-              <Link to="/login" onClick={this.props.clearYelpGrabs}>
-                Log In
-              </Link>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Link to="/signup" onClick={this.props.clearYelpGrabs}>
-                <Button>Sign Up</Button>
-              </Link>
-            </div>
+            <div className="right item">{this.responsiveNav()}</div>
           </div>
         </div>
         <br />

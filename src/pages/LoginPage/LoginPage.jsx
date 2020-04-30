@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import {
   Container,
   Divider,
@@ -11,6 +11,8 @@ import {
   Message,
 } from "semantic-ui-react";
 import "./LoginPage.css";
+import { Background } from "./style";
+import userService from "../../utils/userService";
 
 class LoginPage extends React.Component {
   constructor() {
@@ -18,19 +20,42 @@ class LoginPage extends React.Component {
     this.state = {};
   }
 
-  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+  handleChange = (e, { name, value }) => {
+    this.setState({ [name]: value });
+    console.log(this.state);
+  };
 
-  handleSubmit = async () => {};
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await userService.login(this.state);
+    } catch (err) {
+      alert("Invalid Credentials!");
+    }
+    this.props.history.push("/");
+  };
 
   render() {
     return (
-      <div>
+      <Background>
         <p className="signup">
-          Not a member? &nbsp; <a>Sign up now</a> &nbsp;
+          Not a member? &nbsp;
+          <Link to="/signup">
+            <a>Sign up now</a>
+          </Link>
+          &nbsp;
         </p>
-
         <Container>
-          <Header as="h2" icon textAlign="center">
+          <Link to="/">
+            <img src="https://i.imgur.com/MiqWB6M.png" />
+          </Link>
+          <Header
+            as="h2"
+            icon
+            textAlign="center"
+            className="welcomeBack"
+            color="white"
+          >
             Welcome back!
           </Header>
           <Segment>
@@ -50,6 +75,7 @@ class LoginPage extends React.Component {
               <Form.Group>
                 <Form.Input
                   required
+                  type="password"
                   width={8}
                   label={<div className="labels">Password</div>}
                   placeholder="Password"
@@ -65,9 +91,9 @@ class LoginPage extends React.Component {
             </Form>
           </Segment>
         </Container>
-      </div>
+      </Background>
     );
   }
 }
 
-export default LoginPage;
+export default withRouter(LoginPage);

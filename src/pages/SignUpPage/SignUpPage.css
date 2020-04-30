@@ -1,0 +1,29 @@
+.ui.container {
+  text-align: center;
+}
+
+.ui.segment {
+  background: none;
+  border: none;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.labels {
+  color: white;
+  text-align: left !important;
+}
+
+.fields {
+  justify-content: center;
+}
+
+.eight.wide.field {
+  margin: auto auto 1em !important;
+}
+
+@media only screen and (max-width: 767px) {
+  .ui.form .eight.wide.field {
+    width: 100% !important;
+  }
+}
