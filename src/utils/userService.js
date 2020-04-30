@@ -51,6 +51,21 @@ async function getUserByEmail(email) {
   }
 }
 
+function getAllUsers(query) {
+  // console.log("hitting add location");
+  return fetch(BASE_URL + "getall", {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(query),
+  }).then((res) => {
+    // console.log("this is res from getAllUsers", res);
+    if (res.ok) return res.json();
+    throw new Error(
+      "Add getAllUsers Failed! Check userService.getAllUsers path"
+    );
+  });
+}
+
 function logout() {
   tokenService.removeToken();
 }
@@ -76,4 +91,5 @@ export default {
   login,
   getUserByEmail,
   addPost,
+  getAllUsers,
 };

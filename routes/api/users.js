@@ -7,6 +7,7 @@ router.post("/signup", usersCtrl.signup);
 router.post("/login", usersCtrl.login);
 router.post("/addpost", usersCtrl.addPost);
 router.post("/getByEmail", usersCtrl.getUserByEmail);
+router.post("/getall", usersCtrl.getAllUsers);
 
 /*---------- Protected Routes ----------*/
 

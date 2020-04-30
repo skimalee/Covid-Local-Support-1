@@ -10,7 +10,7 @@ function Map() {
   return (
     <GoogleMap
       defaultZoom={10}
-      defaultCenter={{ lat: 45.421532, lng: -75.697189 }}
+      defaultCenter={{ lat: 34.02481339169935, lng: -118.46657619165782 }}
     ></GoogleMap>
   );
 }

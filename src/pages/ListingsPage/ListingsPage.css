@@ -1,0 +1,5 @@
+.listings {
+  overflow: auto;
+  flex: 1;
+  height: 70vh;
+}

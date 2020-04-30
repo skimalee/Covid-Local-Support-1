@@ -1,5 +1,15 @@
 .headerText {
   text-align: center;
+  font-size: 5vw !important;
+}
+
+.subHeaderText {
+  text-align: center;
+}
+
+.search-bar {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .syncButton {

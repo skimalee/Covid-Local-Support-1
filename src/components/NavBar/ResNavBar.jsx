@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import "./NavBar.css";
 import { Image, Button } from "semantic-ui-react";
+import userService from "../../utils/userService";
 
 class ResNavBar extends React.Component {
   constructor() {
@@ -22,7 +23,10 @@ class ResNavBar extends React.Component {
     this.props.searchRequest(this.state.term);
   };
 
-  responsiveNav = () => {};
+  handleLogout = () => {
+    userService.logout();
+    this.props.history.push("/");
+  };
 
   render() {
     return (
@@ -47,8 +51,8 @@ class ResNavBar extends React.Component {
               Preview
             </Link>
             <div className="right item">
-              <Link to="/logout">
-                <Button>Log Out</Button>
+              <Link to="">
+                <Button onClick={this.handleLogout}>Log Out</Button>
               </Link>
             </div>
           </div>
@@ -62,4 +66,4 @@ class ResNavBar extends React.Component {
   }
 }
 
-export default ResNavBar;
+export default withRouter(ResNavBar);

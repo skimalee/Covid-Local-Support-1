@@ -11,11 +11,15 @@ const LandingPage = (props) => {
   return (
     <div>
       <NavBar />
-      <div className="headerText">
-        <h1>SUPPORT YOUR LOCAL RESTAURANTS</h1>
-        <h4>Search, discover, empower local restaurants</h4>
+
+      <h1 className="headerText">SUPPORT YOUR LOCAL RESTAURANTS</h1>
+      <h4 className="subHeaderText">
+        Search, discover, empower local restaurants
+      </h4>
+
+      <div className="search-bar">
+        <Geocode history={props.history} handleGeoData={props.handleGeoData} />
       </div>
-      <Geocode history={props.history} handleGeoData={props.handleGeoData} />
       <Button className="syncButton" onClick={props.syncLocation}>
         Use my location
       </Button>

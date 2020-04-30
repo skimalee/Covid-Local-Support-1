@@ -15,14 +15,14 @@ class App extends React.Component {
       user: userService.getUser(),
       userLat: "",
       userLng: "",
-      addressInput: "",
+      desiredAddy: "",
       desiredLat: "",
       desiredLng: "",
     };
   }
 
-  componentDidMount() {
-    let status = userService.getUser();
+  async componentDidMount() {
+    let status = await userService.getUser();
     if (this.state.user !== status) {
       this.setState({ user: status });
     }
@@ -30,6 +30,12 @@ class App extends React.Component {
 
   handleGeoData = (data) => {
     console.log(data);
+    this.setState({
+      desiredAddy: data.formatted_address,
+      desiredLat: data.geometry.location.lat,
+      desiredLng: data.geometry.location.lng,
+    });
+    this.props.history.push("/restaurants");
   };
 
   syncLocation = () => {
@@ -42,6 +48,7 @@ class App extends React.Component {
             userLng: position.coords.longitude,
           },
         });
+        this.props.history.push("/restaurants");
       },
       (err) => console.log(err)
     );
@@ -57,7 +64,6 @@ class App extends React.Component {
             render={({ history }) => (
               <LandingPage
                 syncLocation={this.syncLocation}
-                addressInput={this.state.addressInput}
                 handleGeoData={this.handleGeoData}
               />
             )}
@@ -67,8 +73,8 @@ class App extends React.Component {
             path="/restaurants"
             render={({ history }) => (
               <ListingsPage
-                addressInput={this.state.addressInput}
                 handleGeoData={this.handleGeoData}
+                desiredAddy={this.state.desiredAddy}
               />
             )}
           />

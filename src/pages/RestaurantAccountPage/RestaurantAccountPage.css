@@ -15,7 +15,7 @@ body {
 }
 
 .banner {
-  height: 20vh;
+  height: auto;
   width: 100%;
 }
 
@@ -27,4 +27,14 @@ body {
 .resImg {
   width: 100%;
   height: auto;
+}
+
+.placeholder {
+  margin: 0;
+  width: 100%;
+}
+
+.ui.button.orderbtn {
+  background: #ed4c56;
+  color: white;
 }

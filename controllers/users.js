@@ -7,6 +7,7 @@ module.exports = {
   login,
   addPost,
   getUserByEmail,
+  getAllUsers,
 };
 
 async function signup(req, res) {
@@ -86,6 +87,20 @@ async function getUserByEmail(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
     return res.status(200).send(user);
+  } catch (err) {
+    console.error(err);
+    return res.status(401).json(err);
+  }
+}
+
+async function getAllUsers(req, res) {
+  try {
+    const users = await User.find({}, (err, data) => {
+      if (!err) {
+        return data;
+      }
+    });
+    return res.status(200).send(users);
   } catch (err) {
     console.error(err);
     return res.status(401).json(err);

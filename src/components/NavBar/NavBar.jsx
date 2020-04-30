@@ -14,7 +14,7 @@ class NavBar extends React.Component {
 
   componentDidMount() {
     let status = userService.getUser();
-    console.log(status);
+    // console.log(status);
     this.setState({ user: status });
   }
 

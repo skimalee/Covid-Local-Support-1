@@ -7,13 +7,16 @@ import {
   Button,
   Icon,
   Comment,
+  Card,
+  Placeholder,
 } from "semantic-ui-react";
 import RestaurantInfo from "../../components/RestaurantInfo/RestaurantInfo";
 import ResNavBar from "../../components/NavBar/ResNavBar";
 import "./RestaurantAccountPage.css";
 import Posts from "../../components/Posts/Posts";
-import { Feed } from "./style";
+import { Feed, ImageContainer } from "./style";
 import userService from "../../utils/userService";
+import { withRouter } from "react-router-dom";
 
 class RestaurantAccountPage extends React.Component {
   state = {
@@ -41,25 +44,22 @@ class RestaurantAccountPage extends React.Component {
     } catch (err) {
       console.log(err);
     }
+    this.componentDidMount();
   };
 
   async componentDidMount() {
-    console.log(this.state.posts);
-    if (!this.props.user.email || this.state.posts.length > 0) {
+    if (!this.props.user.email) {
       return;
     }
     let user = await userService.getUserByEmail(this.props.user.email);
     // console.log(user);
-    let allposts = user.posts;
+    let allposts = user.posts.reverse();
     this.setState({ posts: allposts });
     console.log("state: ", this.state);
   }
 
   showAllPosts = () => {
-    let originalPosts = this.state.posts;
-    let reversedPosts = originalPosts.reverse();
-
-    let posts = reversedPosts.map((e) => {
+    let posts = this.state.posts.map((e) => {
       // console.log(e);
       return (
         <div className="post-container" key={e.timestamp}>
@@ -90,9 +90,15 @@ class RestaurantAccountPage extends React.Component {
         <Grid className="borderless" celled>
           <Grid.Row>
             <Grid.Column width={4}>
-              <Image className="resImg" src="https://i.imgur.com/jpvc6Ee.png" />
+              <Card className="placeholder">
+                <Card.Content>
+                  <Placeholder fluid>
+                    <Placeholder.Image square />
+                  </Placeholder>
+                </Card.Content>
+              </Card>
             </Grid.Column>
-            <Grid.Column width={10}>
+            <Grid.Column width={9}>
               <Image className="banner" src="https://i.imgur.com/KJw1OyF.jpg" />
             </Grid.Column>
           </Grid.Row>
@@ -100,7 +106,7 @@ class RestaurantAccountPage extends React.Component {
             <Grid.Column width={4}>
               <RestaurantInfo user={this.props.user} />
             </Grid.Column>
-            <Grid.Column width={7}>
+            <Grid.Column width={6}>
               <Form onSubmit={this.handleSubmit}>
                 <TextArea
                   className="post-form"
@@ -120,7 +126,19 @@ class RestaurantAccountPage extends React.Component {
               </Feed>
             </Grid.Column>
             <Grid.Column width={4}>
-              <Image src="/images/wireframe/image.png" />
+              <Button className="orderbtn">Order Now</Button>
+              <br />
+              <br />
+              <ImageContainer>
+                <Image.Group size="tiny">
+                  <Image src="https://i.imgur.com/4y7tKss.jpg" />
+                  <Image src="https://i.imgur.com/MVKpIt2.jpg" />
+                  <Image src="https://i.imgur.com/E8HNxLT.jpg" />
+                  <Image src="https://i.imgur.com/jRtC94k.jpg" />
+                  <Image src="https://i.imgur.com/sDjZdos.jpg" />
+                  <Image src="https://i.imgur.com/ZOG0iAU.jpg" />
+                </Image.Group>
+              </ImageContainer>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -129,4 +147,4 @@ class RestaurantAccountPage extends React.Component {
   }
 }
 
-export default RestaurantAccountPage;
+export default withRouter(RestaurantAccountPage);

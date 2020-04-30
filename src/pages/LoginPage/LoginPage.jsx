@@ -29,10 +29,10 @@ class LoginPage extends React.Component {
     e.preventDefault();
     try {
       await userService.login(this.state);
+      this.props.history.push("/");
     } catch (err) {
       alert("Invalid Credentials!");
     }
-    this.props.history.push("/");
   };
 
   render() {
