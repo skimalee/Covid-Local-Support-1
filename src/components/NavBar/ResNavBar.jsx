@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { Image, Button } from "semantic-ui-react";
 
-class NavBar extends React.Component {
+class ResNavBar extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -34,26 +34,16 @@ class NavBar extends React.Component {
             <div>
               <Image href="https://imgur.com/a/94NTL1H" size="tiny" />
             </div>
-            <Link
-              to="/howtohelp"
-              className="item"
-              onClick={this.props.clearYelpGrabs}
-            >
-              How To Help
+            <p>For Restaurant Owners</p>
+            <Link to="/account" className="item">
+              Your Business
             </Link>
-            <Link to="/stayingsafe" className="item">
-              Staying Safe
-            </Link>
-            <Link to="/registerrestaurant" className="item">
-              Register restaurant
+            <Link to="/preview" className="item">
+              Preview
             </Link>
             <div className="right item">
-              <Link to="/login" onClick={this.props.clearYelpGrabs}>
-                Log In
-              </Link>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <Link to="/signup" onClick={this.props.clearYelpGrabs}>
-                <Button>Sign Up</Button>
+              <Link to="/logout" onClick={this.props.clearYelpGrabs}>
+                <Button>Log Out</Button>
               </Link>
             </div>
           </div>
@@ -67,4 +57,4 @@ class NavBar extends React.Component {
   }
 }
 
-export default NavBar;
+export default ResNavBar;

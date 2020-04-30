@@ -1,0 +1,119 @@
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 20px;
+  background-color: #38686a !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.bigHeader {
+  background-color: #38686a;
+}
+
+.LinkBody {
+  font-size: 1.5vw;
+  align-self: center;
+}
+
+.NavBar-link {
+  margin: 0 10px;
+  color: #cdeac0;
+  padding: 5px 10px;
+}
+
+.NavBar-link:hover {
+  color: white;
+}
+
+.NavBar-welcome {
+  color: grey;
+}
+
+.Title {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  color: #cdeac0;
+  text-emphasis-color: black;
+  font-weight: bolder;
+  font-size: 4vw;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  text-shadow: 1px 2px 4px black;
+  font-style: italic;
+  font-family: "Raleway", sans-serif;
+  padding: 10px 20px;
+  background-color: #38686a;
+  text-align: center;
+  border: none !important;
+}
+
+.bigletter {
+  font-size: 5vw;
+}
+
+.subNav {
+  font-size: 1vw;
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: row;
+}
+
+.navInput {
+  font-size: 1vw;
+  width: 20vw;
+}
+
+::placeholder {
+  color: black !important;
+}
+
+.searchButton {
+  margin: 0 !important;
+  height: min-content;
+  font-size: 0.75vw !important;
+}
+
+@media only screen and (max-width: 600px) {
+  .Title {
+    font-size: 4vw;
+  }
+  .bigletter {
+    font-size: 5vw;
+  }
+  .LinkBody {
+    font-size: 3vw;
+  }
+  .subNav {
+    font-size: 3vw;
+  }
+  .navInput {
+    font-size: 3vw;
+    width: 80vw;
+  }
+  .searchButton {
+    font-size: 2.25vw !important;
+  }
+}
+
+@media only screen and (min-width: 2200px) {
+  .navInput {
+    max-width: 10vw;
+  }
+  .LinkBody {
+    font-size: 1vw;
+  }
+}
+
+.ui.container.subNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

@@ -1,16 +1,18 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Geocode from "react-geocode";
-
 import LandingPage from "./pages/LandingPage/LandingPage";
 // import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import RestaurantAccountPage from "./pages/RestaurantAccountPage/RestaurantAccountPage";
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
       addressInput: "",
+      latitude: "",
+      longitude: "",
     };
   }
 
@@ -51,12 +53,16 @@ class App extends React.Component {
               />
             )}
           />
+          <Route exact path="/login" render={({ history }) => <LoginPage />} />
           <Route
             exact
             path="/signup"
-            render={({ history }) => (
-              <SignUpPage handleSearchChange={this.handleSearchChange} />
-            )}
+            render={({ history }) => <SignUpPage />}
+          />
+          <Route
+            exact
+            path="/account"
+            render={({ history }) => <RestaurantAccountPage />}
           />
         </Switch>
       </div>

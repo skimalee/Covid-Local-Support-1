@@ -1,24 +1,75 @@
 const restaurantCategories = [
+  { value: "newamerican", label: "American (New)" },
+  { value: "tradamerican", label: "American (Traditional)" },
+  { value: "armenian", label: "Armenian" },
+  { value: "asianfusion", label: "Asian Fusion" },
+  { value: "australian", label: "Australian" },
+  { value: "bbq", label: "BBQ" },
+  { value: "breakfastbrunch", label: "Breakfast/Brunch" },
+  { value: "british", label: "British" },
+  { value: "burgers", label: "Burgers" },
+  { value: "cafes", label: "Cafes" },
+  { value: "caribbean", label: "Caribbean" },
+  { value: "dominican", label: "Dominican" },
+  { value: "chickenshop", label: "Chicken Shop" },
+  { value: "chickenwings", label: "Chicken Wings" },
+  { value: "chinese", label: "Chinese" },
+  { value: "cantonese", label: "Cantonese" },
+  { value: "dimsum", label: "Dim Sum" },
+  { value: "shanghainese", label: "Shanghainese" },
+  { value: "szechuan", label: "Szechuan" },
+  { value: "creperies", label: "Creperies" },
+  { value: "cuban", label: "Cuban" },
+  { value: "delis", label: "American (New)" },
+  { value: "diners", label: "Diners" },
+  { value: "ethiopian", label: "Ethiopian" },
+  { value: "fastfood", label: "Fast Food" },
+  { value: "filipino", label: "Filipino" },
+  { value: "foodtruck", label: "Food Truck" },
+  { value: "french", label: "French" },
+  { value: "gastropubs", label: "Gastropubs" },
+  { value: "glutenfree", label: "Gluten Free" },
+  { value: "greek", label: "Greek" },
+  { value: "hawaiian", label: "Hawaiian)" },
+  { value: "hotdog", label: "Hot Dog" },
+  { value: "hotpot", label: "Hot Pot" },
+  { value: "indian", label: "Indian" },
+  { value: "italian", label: "Italian" },
+  { value: "japanese", label: "Japanese" },
+  { value: "izakaya", label: "Izakaya" },
+  { value: "ramen", label: "Ramen" },
+  { value: "korean", label: "Korean" },
+  { value: "kosher", label: "Kosher" },
+  { value: "latin", label: "Latin American" },
+  { value: "colombian", label: "Colombian" },
+  { value: "salvadoran", label: "Salvadoran" },
+  { value: "rawfood", label: "Live/Raw Food" },
+  { value: "mediterranean", label: "Mediterranean" },
+  { value: "mexican", label: "Mexican" },
+  { value: "tacos", label: "Tacos" },
+  { value: "mideastern", label: "Middle Eastern" },
+  { value: "lebanese", label: "Lebanese" },
+  { value: "noodles", label: "Noodles" },
+  { value: "pakistani", label: "Pakistani" },
+  { value: "panasian", label: "Pan Asian" },
+  { value: "pizza", label: "Pizza" },
+  { value: "salad", label: "Salad" },
+  { value: "sandwiches", label: "Sandwiches" },
   { value: "soulfood", label: "Soul Food" },
-  { value: "soup", label: "Soup" },
-  // Southern (southern)
-  // Spanish (spanish)
-  // Sri Lankan (srilankan)
-  // Steakhouses (steak)
-  // Supper Clubs (supperclubs)
-  // Sushi (sushi)
-  // Syrian (syrian)
-  // Taiwanese (taiwanese)
-  // Tapas Bars (tapas)
-  // Tapas/Small Plates (tapasmallplates)
-  // Tex-Mex (tex-mex)
-  // Thai (thai)
-  // Turkish (turkish)
-  // Ukrainian (ukrainian)
-  // Uzbek (uzbek)
-  // Vegan (vegan)
-  // Vegetarian (vegetarian)
-  // Vietnamese (vietnamese)
-  // Waffles (waffles)
-  // Wraps (wraps)
+  { value: "sushi", label: "sushi" },
+  { value: "syrian", label: "Syrian" },
+  { value: "taiwanese", label: "Taiwanese" },
+  { value: "tapas", label: "Tapas Bar" },
+  { value: "tapasmallplates", label: "Tapas/Small Plates" },
+  { value: "thai", label: "Thai" },
+  { value: "turkish", label: "Turkish" },
+  { value: "ukranian", label: "Ukranian" },
+  { value: "uzbek", label: "Uzbek" },
+  { value: "vegan", label: "Vegan" },
+  { value: "vegetarian", label: "Vegetarian" },
+  { value: "vietnamese", label: "Vietnamese" },
+  { value: "waffles", label: "Waffles" },
+  { value: "wraps", label: "Wraps" },
 ];
+
+export default restaurantCategories;

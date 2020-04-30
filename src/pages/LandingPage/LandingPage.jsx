@@ -1,30 +1,30 @@
 import React from "react";
 // import { Link } from "react-router-dom";
-import { Form, Button } from "semantic-ui-react";
+import { Button, Grid } from "semantic-ui-react";
+import NavBar from "../../components/NavBar/NavBar";
+import Geocode from "../../components/GoogleMap/GoogleMap";
 
 import "./LandingPage.css";
 
 const LandingPage = (props) => {
   return (
     <div>
-      <Button onClick={props.syncLocation}>Sync Location</Button>
-
-      <Form
-        onSubmit={() => {
-          if (props.addressInput) {
-            props.coordsFromAddress();
-          }
-        }}
-      >
-        <Form.Input
-          placeholder="Search..."
-          className="address-input"
-          name="addressInput"
-          type="text"
-          value={props.addressInput}
-          onChange={props.handleSearchChange}
-        />
-      </Form>
+      <NavBar />
+      <div className="headerText">
+        <h1>SUPPORT YOUR LOCAL RESTAURANTS</h1>
+        <h4>Search, discover, empower local restaurants</h4>
+      </div>
+      <Geocode />
+      <Button className="syncButton" onClick={props.syncLocation}>
+        Sync Location
+      </Button>
+      <Grid>
+        <Grid.Column key={1}>{/* <Image /> */}</Grid.Column>
+        <Grid.Column key={2}>{/* <Image /> */}</Grid.Column>
+        <Grid.Column key={3}>{/* <Image /> */}</Grid.Column>
+        <Grid.Column key={4}>{/* <Image /> */}</Grid.Column>
+        <Grid.Column key={5}>{/* <Image /> */}</Grid.Column>
+      </Grid>
     </div>
   );
 };
