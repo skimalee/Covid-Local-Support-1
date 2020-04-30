@@ -22,7 +22,7 @@ class RestaurantAccountPage extends React.Component {
   };
 
   handleChange = (event) => {
-    console.log(this.state);
+    // console.log(this.state);
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -44,13 +44,10 @@ class RestaurantAccountPage extends React.Component {
   };
 
   async componentDidMount() {
-    if (!this.props.user.email) {
+    console.log(this.state.posts);
+    if (!this.props.user.email || this.state.posts.length > 0) {
       return;
     }
-    let query = {
-      email: this.props.user.email,
-    };
-
     let user = await userService.getUserByEmail(this.props.user.email);
     // console.log(user);
     let allposts = user.posts;
@@ -63,7 +60,7 @@ class RestaurantAccountPage extends React.Component {
     let reversedPosts = originalPosts.reverse();
 
     let posts = reversedPosts.map((e) => {
-      console.log(e);
+      // console.log(e);
       return (
         <div className="post-container" key={e.timestamp}>
           <Comment.Group>

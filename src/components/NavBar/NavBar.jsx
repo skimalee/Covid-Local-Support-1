@@ -67,13 +67,13 @@ class NavBar extends React.Component {
             <Link to="/">
               <img className="nav-logo" src="https://i.imgur.com/ArGMEB7.png" />
             </Link>
-            <Link to="/howtohelp" className="item">
+            <Link to="" className="item">
               How To Help
             </Link>
-            <Link to="/stayingsafe" className="item">
+            <Link to="" className="item">
               Staying Safe
             </Link>
-            <Link to="/registerrestaurant" className="item">
+            <Link to="" className="item">
               Register restaurant
             </Link>
             <div className="right item">{this.responsiveNav()}</div>
