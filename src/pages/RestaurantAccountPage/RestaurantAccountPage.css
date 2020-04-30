@@ -11,9 +11,20 @@ body {
 .column {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
+  margin: 1em;
 }
 
 .banner {
   height: 20vh;
   width: 100%;
+}
+
+.post-form {
+  padding-bottom: 1rem;
+  height: 15vh;
+}
+
+.resImg {
+  width: 100%;
+  height: auto;
 }

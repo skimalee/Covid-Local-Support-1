@@ -5,6 +5,7 @@ const SECRET = process.env.SECRET;
 module.exports = {
   signup,
   login,
+  addPost,
   getUserByEmail,
 };
 
@@ -48,6 +49,37 @@ async function login(req, res) {
     console.error(err);
     return res.status(401).json(err);
   }
+}
+
+async function addPost(req, res) {
+  await User.findOne({ email: req.body.email }).exec((err, user) => {
+    var today = new Date();
+    var date =
+      today.getFullYear() +
+      "-" +
+      (today.getMonth() + 1) +
+      "-" +
+      today.getDate();
+    var time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = `${date} --- ${time}`;
+    // timestamp code end
+    let post = {
+      content: req.body.newPost,
+      timestamp: dateTime,
+    };
+    user.posts.push(post);
+
+    user.save((err) => {
+      if (err) {
+        console.log("***");
+        console.error(err);
+        console.log("***");
+        return res.status(500);
+      }
+      res.status(201).json(user);
+    });
+  });
 }
 
 async function getUserByEmail(req, res) {

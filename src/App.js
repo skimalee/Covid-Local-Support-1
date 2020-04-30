@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 // import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignUpPage from "./pages/SignUpPage/SignUpPage";
+import ListingsPage from "./pages/ListingsPage/ListingsPage";
 import RestaurantAccountPage from "./pages/RestaurantAccountPage/RestaurantAccountPage";
 
 class App extends React.Component {
@@ -12,9 +13,11 @@ class App extends React.Component {
     super();
     this.state = {
       user: userService.getUser(),
+      userLat: "",
+      userLng: "",
       addressInput: "",
-      latitude: "",
-      longitude: "",
+      desiredLat: "",
+      desiredLng: "",
     };
   }
 
@@ -25,11 +28,8 @@ class App extends React.Component {
     }
   }
 
-  handleSearchChange = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-    console.log(this.state);
+  handleGeoData = (data) => {
+    console.log(data);
   };
 
   syncLocation = () => {
@@ -38,20 +38,13 @@ class App extends React.Component {
         console.log(position);
         this.setState({
           coords: {
-            lat: position.coords.latitude,
-            long: position.coords.longitude,
+            userLat: position.coords.latitude,
+            userLng: position.coords.longitude,
           },
         });
       },
       (err) => console.log(err)
     );
-  };
-
-  handleLogout = () => {
-    userService.logout();
-    this.setState({
-      user: null,
-    });
   };
 
   render() {
@@ -65,9 +58,17 @@ class App extends React.Component {
               <LandingPage
                 syncLocation={this.syncLocation}
                 addressInput={this.state.addressInput}
-                handleSearchChange={this.handleSearchChange}
-                user={this.state.user}
-                handleLogout={this.handleLogout}
+                handleGeoData={this.handleGeoData}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/restaurants"
+            render={({ history }) => (
+              <ListingsPage
+                addressInput={this.state.addressInput}
+                handleGeoData={this.handleGeoData}
               />
             )}
           />
@@ -80,7 +81,9 @@ class App extends React.Component {
           <Route
             exact
             path="/account"
-            render={({ history }) => <RestaurantAccountPage />}
+            render={({ history }) => (
+              <RestaurantAccountPage user={this.state.user} />
+            )}
           />
         </Switch>
       </div>

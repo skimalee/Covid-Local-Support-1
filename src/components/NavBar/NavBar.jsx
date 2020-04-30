@@ -2,11 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./NavBar.css";
 import { Image, Button } from "semantic-ui-react";
+import userService from "../../utils/userService";
 
 class NavBar extends React.Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      user: userService.getUser(),
+    };
+  }
+
+  componentDidMount() {
+    let status = userService.getUser();
+    console.log(status);
+    this.setState({ user: status });
   }
 
   handleSearchChange = (e) => {
@@ -16,8 +25,15 @@ class NavBar extends React.Component {
     // console.log(e.target.value);
   };
 
+  handleLogout = () => {
+    userService.logout();
+    this.setState({
+      user: null,
+    });
+  };
+
   responsiveNav = () => {
-    if (!this.props.user) {
+    if (!this.state.user) {
       return (
         <div>
           <Link to="/login">Log In</Link> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -29,7 +45,7 @@ class NavBar extends React.Component {
     } else {
       return (
         <div>
-          <Link to="" onClick={this.props.handleLogout}>
+          <Link to="" onClick={this.handleLogout}>
             Log Out
           </Link>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

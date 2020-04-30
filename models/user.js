@@ -14,6 +14,7 @@ const userSchema = new mongoose.Schema(
     businessWebsite: String,
     businessPhone: String,
     businessAddress: String,
+    posts: [Object],
   },
   {
     timestamps: true,

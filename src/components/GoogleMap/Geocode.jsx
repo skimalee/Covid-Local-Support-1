@@ -1,6 +1,7 @@
 import React from "react";
 import { Form } from "semantic-ui-react";
 import { getGeocode } from "../../utils/geocodeService";
+import { withRouter } from "react-router-dom";
 
 class GeocodeComponenet extends React.Component {
   constructor() {
@@ -21,7 +22,7 @@ class GeocodeComponenet extends React.Component {
     if (this.state.address) {
       let query = { address: this.state.address };
       const res = await getGeocode(query);
-      console.log("res::::", res);
+      this.props.handleGeoData(res.results[0]);
     }
   };
 
@@ -38,4 +39,4 @@ class GeocodeComponenet extends React.Component {
     );
   }
 }
-export default GeocodeComponenet;
+export default withRouter(GeocodeComponenet);

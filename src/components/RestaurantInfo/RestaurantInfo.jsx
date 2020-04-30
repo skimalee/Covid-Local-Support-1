@@ -1,10 +1,18 @@
 import React from "react";
+import { Info, ResName } from "./style";
 
 const RestaurantInfo = (props) => {
   return (
-    <div>
-      <h1>restaurant info component</h1>
-    </div>
+    <Info>
+      <ResName>{props.user.businessName}</ResName>
+      <button
+        onClick={() => {
+          console.log(props.user);
+        }}
+      >
+        click me for user data
+      </button>
+    </Info>
   );
 };
 

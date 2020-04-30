@@ -24,6 +24,19 @@ function signup(user) {
   //.then((token) => token.token);
 }
 
+function addPost(query) {
+  // console.log("hitting add location");
+  return fetch(BASE_URL + "addpost", {
+    method: "POST",
+    headers: new Headers({ "Content-Type": "application/json" }),
+    body: JSON.stringify(query),
+  }).then((res) => {
+    console.log("this is res from addPost", res);
+    if (res.ok) return res.json();
+    throw new Error("Add addPost Failed! Check userService.addPost path");
+  });
+}
+
 function getUser() {
   return tokenService.getUserFromToken();
 }
@@ -62,4 +75,5 @@ export default {
   logout,
   login,
   getUserByEmail,
+  addPost,
 };

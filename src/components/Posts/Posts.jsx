@@ -3,6 +3,9 @@ import { Button, Comment, Form } from "semantic-ui-react";
 import "./Posts.css";
 
 const Posts = (props) => {
+  let user = props.userByEmail();
+  console.log(user);
+
   return (
     <div className="post-container">
       <Comment.Group>
